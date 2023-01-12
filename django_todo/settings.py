@@ -23,13 +23,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure---7*0)wx5%fjb(k$6g1$+mzm#vc^6t3l^v258++3&7y10ys$z_'
+SECRET_KEY = os.environ.get ('SECRET_KEY', 'django-insecure---7*0)wx5%fjb(k$6g1$+mzm#vc^6t3l^v258++3&7y10ys$z_')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ckz8780-django-todo-app.herokuapp.com']
+ALLOWED_HOSTS = [os.environ.get('HEROKU_HOSTNAME')]
 
 
 # Application definition
@@ -103,8 +103,8 @@ AUTH_PASSWORD_VALIDATORS = [
      'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
     },
     {
-     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'
+    }
 ]
 
 
